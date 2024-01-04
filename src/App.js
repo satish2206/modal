@@ -48,10 +48,14 @@ const User = ({ closeModal }) => {
   };
 
   const handleOutsideClick = (event) => {
-    if (event.target.className === "modal") {
+    //console.log("Clicked Element Class Names:", event.target.className);
+    //console.log("Ancestor Class Names:", event.target.closest(".modal")?.className);
+  
+    if (event.target.closest(".modal")) {
       closeModal();
     }
   };
+  
   
 
   return (
