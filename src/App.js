@@ -48,8 +48,7 @@ const User = ({ closeModal }) => {
   };
 
   const handleOutsideClick = (event) => {
-    console.log(event.target.className);
-    if (event.target.className === "form-group") {
+    if (event.target.className !== "modal") {
       closeModal();
     }
   };
