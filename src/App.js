@@ -1,8 +1,5 @@
-
 import React, { useState } from "react";
-
 const User = ({ closeModal }) => {
-
   // Function to validate email
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -25,22 +22,22 @@ const User = ({ closeModal }) => {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    const email = formData.get('email');
-    const phone = formData.get('phone');
-    const dob = formData.get('dob');
+    const email = formData.get("email");
+    const phone = formData.get("phone");
+    const dob = formData.get("dob");
 
     if (!validateEmail(email)) {
-      alert('Invalid email. Please check your email address.');
+      alert("Invalid email. Please check your email address.");
       return;
     }
 
     if (!validatePhone(phone)) {
-      alert('Invalid phone number. Please enter a 10-digit phone number.');
+      alert("Invalid phone number. Please enter a 10-digit phone number.");
       return;
     }
 
     if (!validateDOB(dob)) {
-      alert('Invalid date of birth. Date of birth cannot be in the future.');
+      alert("Invalid date of birth. Date of birth cannot be in the future.");
       return;
     }
 
@@ -48,15 +45,10 @@ const User = ({ closeModal }) => {
   };
 
   const handleOutsideClick = (event) => {
-    //console.log("Clicked Element Class Names:", event.target.className);
-    //console.log("Ancestor Class Names:", event.target.closest(".modal")?.className);
-  
-    if (event.target.closest(".modal")) {
+    if (event.target.className === "modal") {
       closeModal();
     }
   };
-  
-  
 
   return (
     <div className="modal" onClick={handleOutsideClick}>
@@ -114,10 +106,8 @@ const User = ({ closeModal }) => {
   );
 };
 
-
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
- 
 
   const openModal = () => {
     setIsOpen(true);
@@ -130,7 +120,9 @@ const App = () => {
   return (
     <div className="App">
       <h1>User Details Modal</h1>
-      <button onClick={openModal} className="submit-button">Open Form</button>
+      <button onClick={openModal} className="submit-button">
+        Open Form
+      </button>
       {isOpen && <User closeModal={closeModal} />}
     </div>
   );
