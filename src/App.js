@@ -48,10 +48,11 @@ const User = ({ closeModal }) => {
   };
 
   const handleOutsideClick = (event) => {
-    if (event.target.className === "modal") {
+    if (!event.target.closest(".modal")) {
       closeModal();
     }
-  };
+  }
+  
 
   return (
     <div className="modal" onClick={handleOutsideClick}>
