@@ -48,10 +48,11 @@ const User = ({ closeModal }) => {
   };
 
   const handleOutsideClick = (event) => {
-    if (!event.target.closest(".modal")) {
+    console.log(event.target.className);
+    if (event.target.className === "form-group") {
       closeModal();
     }
-  }
+  };
   
 
   return (
