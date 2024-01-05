@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./App.css"
 const User = ({ closeModal }) => {
   // Function to validate email
   const validateEmail = (email) => {
@@ -45,7 +46,7 @@ const User = ({ closeModal }) => {
   };
 
   const handleOutsideClick = (event) => {
-    if (event.target.className === "modal") {
+    if (event.target.className==="modal") {
       closeModal();
     }
   };
